@@ -1,0 +1,1 @@
+C:\inetpub\wwwroot\adcore.nodejs.v6\adcore.ui\obj\Debug\adcore.ui.njsprojResolveAssemblyReference.cache

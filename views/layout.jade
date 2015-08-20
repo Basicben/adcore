@@ -1,0 +1,53 @@
+﻿doctype html
+html(style="height: 100%;")
+  head
+    title= title
+    base(href="/")
+    meta(HTTP-EQUIV="content-type", CONTENT="text/html; charset=utf-8")
+
+    // adCore vendors css    
+    link(href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.min.css")
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans',rel='stylesheet',type='text/css')
+    link(rel='stylesheet', href='/public/stylesheets/style.css')
+    link(rel='stylesheet', href='/public/stylesheets/vendors/bootstrap.css')
+    link(href="/public/stylesheets/vendors/jquery.qtip.min.css" ,rel="stylesheet" ,type="text/css")
+    link(href="/public/stylesheets/vendors/angular-notify.css"  ,rel="stylesheet" ,type="text/css")
+    link(href="/public/stylesheets/vendors/introjs.css"         ,rel="stylesheet" ,type="text/css")
+
+    // adCore Angular jQueryUI JavaScript 
+    script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js")
+    script(language="javascript" ,src='/public/javascripts/vendors/angular.min.js')
+    script(language="javascript" ,src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js')
+    script(language="javascript" ,src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js')
+    script(language="javascript" ,src='/public/javascripts/vendors/ui-bootstrap-angular.js')
+    script(language="javascript" ,src='/public/javascripts/vendors/angular-popover-toggle.js')
+
+    // Engine adCore JavaScript
+    script(language="javascript" ,src="/public/javascripts/vendors/JScript.js")
+
+    // adCore Vendors JavaScript 
+    script(language="javascript" ,src="/public/javascripts/vendors/intro.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/angular-intro.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/angular-cookie.min.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/jquery.qtip.min.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/angular-notify.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/xml2json.min.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/resizable-tables.js")
+    script(language="javascript" ,src="/public/javascripts/vendors/chronicle.js")
+
+    // adCore angular
+    script(language="javascript" ,src='/public/javascripts/angular/adcore.directive.js')
+    script(language="javascript" ,src='/public/javascripts/angular/adcore.filter.js')
+    script(language="javascript" ,src='/public/javascripts/angular/adcore.main.js')
+    script(language="javascript", src="/public/javascripts/controllers/searchTerm.js")
+
+  body(ng-app='adcore', ng-controller='adcoreCtrl', style="height: 100%;")
+    
+    div(ng-include="'/public/templates/partials/header.html'", class="header")
+   
+    div(class='main')
+        block content
+
+    div(id='footer', class='footer')
+        div(class='footer_content')

@@ -1,0 +1,106 @@
+﻿<div style="height:100%">
+    <div class="loader_mask" ng-if="isLoading"></div>
+
+    <div class="grid_actions">
+        <div class="sort_grid_actions" ng-if="sorts.length > 0">
+            <div> Sorts :  </div>
+            <div class="sorts" ng-repeat="sort in sorts">
+                {{sort.columnName}} <span class="deleteSort" ng-click="deleteSort(sort)"> &#10060; </span>
+            </div>
+        </div>
+    </div>
+    <div style="position: relative;">
+        <table id="grid_table" class="table table-bordered table-condensed resizable" ng-class="{ 'table_analize_in_proccess' : isAnalizeData && grid_data.length > 0}">
+            <thead>
+                <tr class="{{ rows.head_class }}" id="column_header">
+                    <th ng-repeat="(key, col) in columns" class="th_hover_class" ng-style="$index != 0 && {'width': col.width, 'max-width': col.width }"> 
+                        <div class="columnName_wrapper" style="display:inline-block;padding:5px;" ng-style="$index != 0 && {'padding-left': '17px'}" ng-click="sort(col.name)"> 
+                            <!-- sets the name for every column except from the first -->
+                            <div class="sort_wrapper" ng-if="sorts.length > 0 && ifExistsInSort(col.name) != -1">
+                                <div ng-if="sorts[ifExistsInSort(col.name)].order == 'desc'"> <img src="../images/arrow_down.png" /> </div>
+                                <div ng-if="sorts[ifExistsInSort(col.name)].order == 'asc'"> <img src="../images/arrow_up.png" /> </div>
+                            </div>
+                            <div ng-if="$index != 0"> {{ col.display }} </div>
+                            <!-- puts a checkbox in the first column in row. -->
+                            <div ng-if="$index == 0"> <input type="checkbox" ng-model="pagination.isAllChecked" ng-click="pagination.markAllRows();" /> </div> 
+                        </div>
+                        <div style="position: absolute;right: 0px;top: 6px;">
+                            <div class="column_header_action" ng-if="col.isSortable && col.isVisible && col.isFilter && col.isEdit">
+                                <div class="action left_action_arrow" ng-if="col.isSortable || col.isVisible || col.isFilter || col.isEdit">
+                                    <span>  </span>
+                                </div>
+                                <ad-pop column="col" filters="filters" ng-if="col.isFilter"> </ad-pop>
+                                <div class="action sort" ng-if="col.isSortable">
+                                    <div class="action_img" style="background-color:rgba(59, 89, 152, 0.67);">
+                                        <span>  </span>
+                                    </div>
+                                </div>
+                                <div class="action _action" ng-if="col.isEdit">
+                                    <div class="action_img" style="background-color:rgba(99, 155, 241, 0.67);">
+                                        <span>  </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="grid_data.length > 0" ng-repeat="data_obj in grid_data |
+                                   startFrom : pagination.dataIndexRoot |
+                                   limitTo: pagination.pageSize" ng-class="{selectedRow: ( uniq.isChecked(data_obj[uniq.key]) && uniq.isExist) }" class="{{ rows._class }}" ng-click="rows.onclick($event,data_obj);">
+                    <td ng-if="uniq.isExist">
+                        <span class="col_content">
+                            <input style="position: relative;left: 5px;" ng-model="checkedRows[data_obj[uniq.key]]" type="checkbox" ng-change="uniq.addRemove(data_obj[uniq.key])" />
+                        </span>
+                    </td>
+                    <td ng-repeat="(key, col) in columns" id="data_{{ $index }}" col_index="{{ col.name }}" ng-if="col.isVisible" ng-style="$index != 0 && {'width': col.width, 'max-width': col.width }">
+                        <span class="col_content" title="{{ data_obj[col.name] }}">
+                            {{ data_obj[col.name] }}
+                        </span>
+                    </td>
+                </tr>
+                <tr ng-if="grid_data.length == 0 && isAnalizeData == false">
+                    <td class="grid_no_results_td" colspan="20"> NO RESULTS </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="loader" ng-if="isAnalizeData || isLoading"> <img src="../images/ajax-loader.gif" /> </div>
+
+    <div class="{{ pagination._class }}">
+        <div class="pagination_transition">
+            <div class="{{ pagination.button_class }}">
+                Showing rows {{ pagination.dataIndexRoot + 1 }} to
+                {{ (pagination.dataIndexRoot + pagination.pageSize) > displayRowsNumber ? displayRowsNumber : pagination.dataIndexRoot + pagination.pageSize }}
+                from {{ displayRowsNumber }}
+            </div>
+            <div class="{{ pagination.select_class }}">
+                <select ng-model="pagination.pageSize" ng-options="opt.value as opt.lable for opt in pagination.pageSizeOptions"
+                        class="feeditor_select form-control"></select>
+            </div>
+            <div ng-show="pagination.numberOfPages() > 1" class="{{ pagination.button_class }}"
+                 ng-click="pagination.toPage(0);">
+                First
+            </div>
+            <div ng-show="pagination.numberOfPages() > 1" class="{{ pagination.button_class }}"
+                 ng-click="pagination.previosPage();">
+                Previous
+            </div>
+            <div ng-show="pagination.numberOfPages() > 1" class="{{ pagination.button_class }} {{pagination.number_class}}"
+                 ng-repeat="n in [].constructor(pagination.numberOfPages()) track by $index" ng-click="pagination.toPage($index)"
+                 ng-class="{'selected' : pagination.currentPage == $index}" ng-if="isDisplayPage($index) == 1">
+                {{ $index + 1}}
+            </div>
+            <div ng-show="pagination.numberOfPages() > 1" class="{{ pagination.button_class }}"
+                 ng-click="pagination.nextPage();">
+                Next
+            </div>
+            <div ng-show="pagination.numberOfPages() > 1" class="{{ pagination.button_class }}"
+                 ng-click="pagination.toPage(pagination.numberOfPages() - 1);">
+                Last
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height:50px;"></div>

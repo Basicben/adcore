@@ -1,0 +1,267 @@
+﻿<style>
+    .popover {
+        left: -100%;
+        width: 600px;
+        max-width: 600px;
+    }
+
+    .popover-title{
+        cursor: move;
+    }
+
+    .popover-content {
+        background-color: #F9F9F9;
+    }
+
+    .popover > .arrow {
+        left: 10% !important;
+    }
+
+    .popover-title {
+        background-color: #0C6DB3 !important;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .popover.bottom > .arrow:after {
+        border-bottom-color: #0C6DB3;
+    }
+
+    .filter_row {
+        position: relative;
+        margin: 0px 2px 0px 2px;
+        padding: 10px 0px 10px 0px;
+        border-bottom: 1px dashed #CCCCCC;
+    }
+
+        .filter_row > div {
+            display: inline-block;
+        }
+
+    .input_repeater > .inline-block {
+        position: relative;
+    }
+
+        .input_repeater > .inline-block > textarea {
+            position: absolute;
+            top: -21px;
+            width: 143px;
+            height: 34px;
+        }
+
+    .closePopup {
+        position: absolute;
+        top: 17px;
+        right: 5px;
+    }
+
+    .margright15 {
+        margin-right: 15px;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    .popover_wrapper, .filter_row {
+        width: 100%;
+    }
+
+    .oneParam {
+    }
+
+    .twoParam {
+        margin-right: 15px;
+        width: 26%;
+    }
+
+    .threeParam {
+        margin-right: 10px;
+        width: 18%;
+    }
+
+    .blue_btn {
+        padding: 6px 10px 6px 10px;
+        background-color: #0C6DB3;
+        display: inline-block;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .form-control {
+        padding: 0px 4px !important;
+        font-size: 13px !important;
+    }
+
+    .popup_footer {
+        margin-top: 15px;
+    }
+
+        .popup_footer > .buttons {
+            margin-top: 15px;
+        }
+
+            .popup_footer > .buttons > div {
+                display: inline-block;
+                width: 80px;
+                text-align: center;
+                border-radius: 5px;
+                padding: 6px 10px 6px 10px;
+                text-transform: capitalize;
+                color: black;
+                border: 1px solid #DAE0E5;
+                cursor: pointer;
+            }
+
+            .popup_footer > .buttons > .save {
+                color: white;
+                width: 32.8% !important;
+            }
+
+            .popup_footer > .buttons > .cancel {
+                width: 32.8% !important;
+            }
+
+            .popup_footer > .buttons > .clear {
+                width: 32.8% !important;
+            }
+
+    .operator_display {
+        position: absolute;
+        bottom: -13px;
+        right: 23px;
+        cursor: pointer;
+        width: 26px;
+        height: 26px;
+        border-radius: 100%;
+        background-color: #C757AD;
+        text-align: center;
+        box-shadow: inset 0px 0px 0px #C31C8E;
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+    }
+
+        .operator_display:hover {
+            box-shadow: inset 0px 0px 40px #C31C8E;
+            width:30px;
+            height:30px;
+            bottom:-15px;
+            right:21px;
+        }
+
+        .operator_display:hover > span{
+            top:4px;
+        }
+
+        .operator_display > span {
+            position: relative;
+            font-size: 11px;
+            color: white;
+            top: 3px;
+        }
+
+    .green_gardient {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bfd255+0,8eb92a+50,72aa00+51,9ecb2d+100;Green+Gloss */
+        background: #bfd255; /* Old browsers */
+        background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bfd255), color-stop(50%,#8eb92a), color-stop(51%,#72aa00), color-stop(100%,#9ecb2d)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
+    }
+
+    .grey_gardient {
+        background: rgb(246,248,249); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,248,249,1)), color-stop(50%,rgba(229,235,238,1)), color-stop(51%,rgba(215,222,227,1)), color-stop(100%,rgba(245,247,249,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+    }
+
+    .pink_gardient {
+        background: rgb(203,96,179); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(203,96,179,1) 0%, rgba(193,70,161,1) 50%, rgba(168,0,119,1) 51%, rgba(219,54,164,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(203,96,179,1)), color-stop(50%,rgba(193,70,161,1)), color-stop(51%,rgba(168,0,119,1)), color-stop(100%,rgba(219,54,164,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#db36a4',GradientType=0 ); /* IE6-9 */
+    }
+
+    .error{
+        position: absolute;
+        font-size: 9px;
+        color: red;
+        font-weight: 600;
+    }
+
+</style>
+
+<div class="popover_wrapper" ng-form name="filterForm">
+
+    <div class="filter_wrapper">
+        <div class="filter_row" ng-repeat="(key, cf) in currentFilters track by $index">
+            <div class="closePopup pointer" ng-click="removeFilter($index)"> &#10060; </div>
+            <div> {{$index+1}}. </div>
+            <div style="width: 92%;">
+                <div class="inline-block margright15">
+                    <select class="form-control" ng-model="cf.key" ng-change="initFilter($index);"> 
+                        <option ng-if="false"></option>
+                        <option ng-selected="{{filterList[filter].value == cf.key}}" value="{{filterList[filter].value}}" ng-repeat="filter in $parent.columns[column.name].filters track by $index">{{filterList[filter].label}}</option>
+                    </select>
+                </div>
+                <div class="input_repeater inline-block" ng-repeat="input in filterList[cf.key].paramInputType track by $index"
+                     ng-class="{'oneParam': filterList[cf.key].paramInputType.length == 1, 'twoParam': filterList[cf.key].paramInputType.length == 2, 'threeParam': filterList[cf.key].paramInputType.length == 3}">
+                    <!-- Input type text -->
+                    <input name="stringInput" class="form-control inline-block" ng-if="input != 'select' && input != 'textarea' && input != 'number' && input == 'text'"
+                           type="text" ng-model="cf.params[$index]" placeholder="{{filterList[cf.key].placeholder[$index]}}"
+                           ng-init="cf.params[$index] = cf.params[$index] == null ? '' : cf.params[$index]" />
+                    <span class="error" ng-show="filterForm.stringInput.length == 0">mandatory field</span>
+                    <!-- Input type number -->
+                    <input class="form-control inline-block" ng-if="input != 'select' && input != 'textarea' && input != 'text' && input == 'number'"
+                           type="number" ng-model="cf.params[$index]" placeholder="{{filterList[cf.key].placeholder[$index]}}"
+                           ng-init="cf.params[$index] = cf.params[$index] == null ? '' : cf.params[$index]" />
+
+                    <!-- Textarea -->
+                    <div class="inline-block" ng-if="input != 'select' && input != 'text' && input != 'number' && input == 'textarea'">
+                        <textarea rows="2" class="form-control"
+                                  ng-model="cf.params[$index]" placeholder="{{filterList[cf.key].placeholder[$index]}}"
+                                  ng-init="cf.params[$index] = cf.params[$index] == null ? '' : cf.params[$index]">
+                        </textarea>
+                    </div>
+                    <!-- Selectbox -->
+                    <select class="form-control inline-block" ng-if="input != 'textarea' && input != 'text' && input != 'number' && input == 'select'"
+                            ng-model="cf.params[$index]" ng-init="cf.params[$index] = cf.params[$index] == undefined ? filterList[cf.key].DefualtValues[$index] : cf.params[$index]">
+                        <option ng-selected="option._key ==  cf.params[$index]" value="{{option._key}}" ng-repeat="option in filterList[cf.key].options[$index]"> {{option._value}} </option>
+                    </select>
+                </div>
+                <div ng-if="isLastIndex($index)" class="operator_display" ng-init="cf.operator = cf.operator == undefined ? '&&' :  cf.operator"
+                     ng-click="cf.operator = cf.operator == '&&' ? '||' : '&&'">
+                    <span ng-if="cf.operator == '&&'"> AND </span>
+                    <span ng-if="cf.operator == '||'"> OR </span>
+                </div>
+            </div>
+        </div>
+        <div class="popup_footer">
+            <div class="buttons">
+                <div class="pointer grey_gardient" ng-click="addFilter()"> + Filter </div>
+            </div>
+            <div class="buttons">
+                <div class="save pink_gardient" ng-click="saveFilters()"> save </div>
+                <div class="cancel grey_gardient" ng-click="close()"> cancel </div>
+                <div class="clear grey_gardient" ng-click="clear()"> clear </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

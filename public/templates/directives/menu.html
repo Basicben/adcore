@@ -1,0 +1,7 @@
+﻿<div class="{{ menuClass }}">
+    <div ng-repeat="item in menuItems | filter:{ isActive : true } | orderBy:'order'" class="menu_item" ng-click="menuItemClick(item);">
+        <div class="lable" ng-class="{ 'active' : item.id == active }">
+            <span>{{ item.lable }}</span>
+        </div>
+    </div>
+</div>
