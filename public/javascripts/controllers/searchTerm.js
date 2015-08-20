@@ -40,7 +40,7 @@
             $http({
                 method: 'POST',
                 data: { uniq: $scope.uniqeObj.key, pagination: { currentPage: $scope.pagination.currentPage, rows: $scope.pagination.pageSize, pages: $scope.pagination.pages} },
-                url: 'https://adcore-api.herokuapp.com//api/core/get'
+                url: 'http://adcore-api.herokuapp.com/api/core/get'
             }).success(function (data) {
                 $scope.safeApply(function () {
                     $scope.grid_data = data.result;
@@ -60,7 +60,7 @@
             $http({
                 method: 'POST',
                 data: { uniq: $scope.uniqeObj.key, filters: $scope.filters },
-                url: 'https://adcore-api.herokuapp.com//api/core/filter'
+                url: 'http://adcore-api.herokuapp.com/api/core/filter'
             }).success(function (data) {
                 $scope.grid_data = data.result;
                 console.log('data.result', data.result);
@@ -80,7 +80,7 @@
             $http({
                 method: 'POST',
                 data: { type: $scope.uniqeObj.type, advertiserId: $scope.uniqeObj.advertiserId },
-                url: 'https://adcore-api.herokuapp.com//api/core/create'
+                url: 'http://adcore-api.herokuapp.com/api/core/create'
             }).success(function (result) {
                 if (result.err) {
                     console.log('result.err', result.err);
@@ -405,7 +405,7 @@
             $http({
                 method: 'POST',
                 data: { uniq: $scope.uniqeObj.key, sorts: $scope.sorts },
-                url: 'https://adcore-api.herokuapp.com//api/core/sort'
+                url: 'http://adcore-api.herokuapp.com/api/core/sort'
             }).success(function (data) {
                 $scope.grid_data = data.result;
                 console.log('data.result', data.result);
